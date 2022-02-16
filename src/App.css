@@ -1,38 +1,122 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+  background: #f6f7f5 url('https://5ojtv13o4by138ocv258q4xu7h-wpengine.netdna-ssl.com/wp-content/themes/phish/assets/img/background-texture.jpg');
+  background-attachment: fixed;
+  font-family: 'Libre Baskerville', serif;
   text-align: center;
+  color: #1d424b;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1,
+h1.gradient-text {
+  font-size: 7em;
+  margin: 0.5em 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gradient-text {
+  width: 100%;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0);
+  background: url('banner.jpg');
+  background-size: 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* h2,
+h3,
+h4 {
+  margin: 0.75em 0;
+} */
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.item {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: rgba(177, 212, 231, 0.75);
+  width: 300px;
+  padding: 1em;
+  margin: 0.7em 3em 1.4em;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  background-color: #2C6E91;
+  color: #F15A50;
+  border: none;
+  cursor: pointer;
+  font-family: 'Fredoka One', cursive;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding: 1em;
+  margin: 1em;
+  text-transform: uppercase;
+  transition: 0.4s;
+  box-shadow: inset 1px 1px 1px 0px rgba(255,255,255,.5),
+                   4px 4px 15px 0px rgba(0,0,0,.1),
+                   2px 2px 3px 0px rgba(0,0,0,.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:hover {
+  background-color: #F15A50;
+  color: #2C6E91;
+  box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
+              -2px -2px 3px 0 rgba(116, 125, 136, .2), 
+        inset -2px -2px 3px 0 rgba(255,255,255,.5),
+        inset  2px 2px 3px 0 rgba(116, 125, 136, .3);
+}
+
+.btn-more {
+  padding: 0.5em;
+  cursor: pointer;
+  text-decoration: underline;
+  background-color: #f04e42;
+  border: none;
+  font-weight: bold;
+  color: #f6f7f5;
+}
+
+.btn-more:hover {
+  background-color: #F15A50;
+  color: #2C6E91;
+}
+
+@media all and (max-width: 500px) {
+  html {
+    font-size: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  h1,
+  h1.gradient-text {
+    font-size: 5em;
+  }
+
+  img {
+    width: 350px;
+    height: auto;
+  }
+
+  .item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
   }
 }
