@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 body {
+  /* background-image: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) ), url('https://cdn.wallpapersafari.com/45/50/Ej3Brs.jpg');
+  background-color: #008fcc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
   background: #f6f7f5 url('https://5ojtv13o4by138ocv258q4xu7h-wpengine.netdna-ssl.com/wp-content/themes/phish/assets/img/background-texture.jpg');
   background-attachment: fixed;
   font-family: 'Libre Baskerville', serif;
@@ -18,21 +23,20 @@ h1.gradient-text {
 .gradient-text {
   width: 100%;
   font-family: 'Fredoka One', cursive;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0);
-  background: url('banner.jpg');
-  background-size: 50%;
+  background: url('logo.jpg') repeat center center fixed;
+  background-size: 5%;
   background-clip: text;
   -webkit-background-clip: text;
 }
 
-/* h2,
-h3,
 h4 {
-  margin: 0.75em 0;
-} */
+  font-family: 'Fredoka One', cursive;
+  font-weight: lighter;
+}
 
 .container {
   display: flex;
@@ -51,7 +55,7 @@ h4 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(177, 212, 231, 0.75);
+  background-color: rgba(157, 201, 225, 0.75);
   width: 300px;
   padding: 1em;
   margin: 0.7em 3em 1.4em;
@@ -75,27 +79,23 @@ button {
 }
 
 button:hover {
-  background-color: #F15A50;
-  color: #2C6E91;
   box-shadow:  2px 2px 3px 0 rgba(255,255,255,.5),
               -2px -2px 3px 0 rgba(116, 125, 136, .2), 
         inset -2px -2px 3px 0 rgba(255,255,255,.5),
         inset  2px 2px 3px 0 rgba(116, 125, 136, .3);
 }
 
-.btn-more {
-  padding: 0.5em;
-  cursor: pointer;
-  text-decoration: underline;
-  background-color: #f04e42;
-  border: none;
-  font-weight: bold;
-  color: #f6f7f5;
-}
-
-.btn-more:hover {
+.btnMap {
   background-color: #F15A50;
   color: #2C6E91;
+}
+
+.btnz {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 @media all and (max-width: 500px) {
