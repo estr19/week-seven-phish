@@ -4,12 +4,17 @@ import './App.css';
 
 function App() {
   const [shows, setShows] = useState(phish);
+  const dateTimes = phish.map(value => value.time);
 
   const calculateTimeLeft = () => {
-    const meetingDate = new Date("2022-04-20T19:30:00Z");
+    const meetingDate = new Date("2022-04-21T00:30:00Z");
     const today = new Date();
     const difference = meetingDate - today;
     let timeLeft = {};
+
+    // if (hours < 10) hours = "0" + hours;
+    // if (minutes < 10) minutes = "0" + minutes;
+    // if (seconds < 10) seconds = "0" + seconds;
 
     if (difference > 0) {
       timeLeft = {
@@ -19,7 +24,7 @@ function App() {
         seconds: Math.floor((difference / 1000) % 60),
       };
     }
-
+    
     return timeLeft;
   };
 
@@ -27,7 +32,7 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+        setTimeLeft(calculateTimeLeft());
     }, 1000);
   });
 
@@ -62,13 +67,13 @@ function App() {
     <div>
       <div className='container'>
         <h1 className='gradient-text'>2022 Phish Spring-Summer Tour</h1>
+        <h2>Next show is in{timerComponents.length ? timerComponents : <span>It's show time!</span>}</h2>
       </div>
       <div className='list'>
         {shows.map((element => {
           const {id, date, venue, photo, link, address, tickets, showMap} = element;
           return(
             <div className='item' key={id}>
-              <p>This show is in{timerComponents.length ? timerComponents : <span>It's show time!</span>}</p>
               <h2>{date}</h2>
               <img src={photo} alt={venue} width='300px'/>
               <h3>{venue}</h3>
