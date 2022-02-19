@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const [shows, setShows] = useState(phish);
-  const dateTimes = phish.map(value => value.time);
+  /*const dateTimes = phish.map(value => value.time); */
 
   const calculateTimeLeft = () => {
     const meetingDate = new Date("2022-04-21T00:30:00Z");
