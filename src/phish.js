@@ -53,7 +53,7 @@ export const phish = [
     id: 6,
     date: 'August 5th-7th',
     venue: 'Atlantic City Beach',
-    photo: 'http://media.philly.com/images/20140802_inq_jshelton02z-b.JPG',
+    photo: 'https://www.nyctaper.com/wp-content/uploads/2021/08/Phish-AC-Overview.jpg',
     link: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24681.398845796313!2d-74.47006582214334!3d39.35227672319818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c0ef4c78473035%3A0xa2abee4c731ec304!2sAtlantic%20City%20Beach!5e0!3m2!1sen!2sus!4v1645044023906!5m2!1sen!2sus',
     time: '"2022-08-06T00:30:00Z"',
     address: '1001 Boardwalk, Atlantic City, NJ 08401',

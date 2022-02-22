@@ -33,6 +33,14 @@ h1.gradient-text {
   -webkit-background-clip: text;
 }
 
+h2,
+h3,
+h4 {
+  background-color: rgba(255, 255, 255, 0.75);
+  /* color: #000000; */
+  padding: 0.5em;
+}
+
 h4 {
   font-family: 'Fredoka One', cursive;
   font-weight: lighter;
@@ -52,6 +60,14 @@ h4 {
 }
 
 .item {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.75)
+    ),
+    url('https://townsquare.media/site/838/files/img/as/phish-msg-2015.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -65,6 +81,7 @@ h4 {
 button {
   background-color: #2C6E91;
   color: #F15A50;
+  /* color: #f6f7f5; */
   border: none;
   cursor: pointer;
   font-family: 'Fredoka One', cursive;
@@ -89,6 +106,7 @@ button:hover {
 .btnMap {
   background-color: #F15A50;
   color: #2C6E91;
+  /* color: #F6F7F5; */
 }
 
 .btnz {
@@ -97,6 +115,7 @@ button:hover {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 @media all and (max-width: 500px) {
