@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
+import {useEffect} from 'react';
 import { phish } from './phish';
 import './App.css';
 // import SongInfo from './SongInfo';
@@ -9,53 +10,45 @@ function App() {
   // const [mySearch, setMySearch] = useState('');
   // const [mySongs, setMySongs] = useState([]);
   // const [submitted, setSubmitted] = useState('avocado');
-  // const [timeRemaining, setTimeRemaining] = useState({});
   // const dateTimes = shows.map(value => value.time);
 
-  // const pushObject = () => {
-  //   const minLeft = {days: null, hours: null, minutes: null, seconds: null};
-  //   let newObjects = [];
-  //   shows.forEach(show => {
-  //     if (!show.hasOwnProperty('minLeft')) {
-  //       show = {...show, minLeft};
-  //       newObjects.push(show);
-  //     } else {
-  //       newObjects.push(show);
-  //     }
-  //   });
-  //   console.log(newObjects);
-  // }
-
-  // pushObject();
-
-  const calculateTimeLeft = () => {
-    const meetingDate = new Date("2022-04-21T00:30:00Z");
-    const today = new Date();
-    const difference = meetingDate - today;
-    let timeLeft = {};
-
-    let displayDays = Math.floor(difference / (1000 * 60 * 60 * 24));
-    let displayHours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-    let displayMinutes = Math.floor((difference / 1000 / 60) % 60);
-    let displaySeconds = Math.floor((difference / 1000) % 60);
-
-    if (displayDays < 10) displayDays = "0" + displayDays;
-    if (displayHours < 10) displayHours = "0" + displayHours;
-    if (displayMinutes < 10) displayMinutes = "0" + displayMinutes;
-    if (displaySeconds < 10) displaySeconds = "0" + displaySeconds;
-
-    if (difference > 0) {
-      timeLeft = {
-        days: displayDays,
-        hours: displayHours,
-        minutes: displayMinutes,
-        seconds: displaySeconds,
-      };
+  const runFunctionWithTimes = () => {
+    let newObjects = [];
+    for (let i = 0; i < shows.length; i++) {
+      let show = shows[i];
+      let showTime = show.time;
+      let showDate = new Date(showTime);
+      const today = new Date();
+      const difference = showDate - today;
+      let minLeft = {};
+    
+      let displayDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+      let displayHours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      let displayMinutes = Math.floor((difference / 1000 / 60) % 60);
+      let displaySeconds = Math.floor((difference / 1000) % 60);
+    
+      if (displayDays < 10) displayDays = "0" + displayDays;
+      if (displayHours < 10) displayHours = "0" + displayHours;
+      if (displayMinutes < 10) displayMinutes = "0" + displayMinutes;
+      if (displaySeconds < 10) displaySeconds = "0" + displaySeconds;
+    
+      if (difference > 0) {
+        minLeft = {
+          days: displayDays,
+          hours: displayHours,
+          minutes: displayMinutes,
+          seconds: displaySeconds,
+        };
+        if (show.minLeft !== minLeft) {
+          show = {...show, minLeft};
+          newObjects.push(show);
+        } else {
+          newObjects.push(show);
+        }
+      }
     }
-    return timeLeft;
-  };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+    return setShows(newObjects);
+  }
 
   useEffect(() => {
     // async function fetchData() {
@@ -66,22 +59,9 @@ function App() {
     // }
     // fetchData();
     const tick = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft());
+      runFunctionWithTimes();
     }, 1000);
     return () => clearInterval(tick);
-  }, []);
-
-  const timerComponents = ['Next show is in'];
-
-  Object.keys(timeLeft).forEach((interval) => {
-    if (!timeLeft[interval]) {
-      return;
-    }
-    timerComponents.push(
-      <span key={interval}>
-        {":"}{" "}{timeLeft[interval]} {" "}
-      </span>
-    );
   });
 
   const clickMap = (id) => {
@@ -109,8 +89,7 @@ function App() {
   return (
     <div>
       <div className='container'>
-        <h1 className='gradient-text'>2022 Phish Spring-Summer Tour</h1>
-        <h2 style={{backgroundColor: 'transparent'}}>{timerComponents.length ? timerComponents : <span>It's show time!</span>}</h2>
+        <h1 className='gradient-text'>Phish Tour SS22</h1>
       </div>
       {/* <div className="container" style={{flexDirection: 'row'}}>
         <form onSubmit={finalSearch}>
@@ -128,9 +107,11 @@ function App() {
       ))} */}
       <div className='list'>
         {shows.map((element => {
-          const {id, date, venue, photo, link, address, tickets, showMap} = element;
+          const {id, date, venue, photo, link, address, tickets, showMap, minLeft} = element;
           return (
-            <div className='item' style={{backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(' + photo + ')'}} key={id}>
+            <div className='item' key={id} style={{backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(' + photo + ')'}}>
+              {/* <h2>{timerComponents.length ? timerComponents : <span>It's show time!</span>}</h2> */}
+              <h3 style={{fontSize: '1em'}}>Next show is in: {minLeft.days} : {minLeft.hours} : {minLeft.minutes} : {minLeft.seconds}</h3>
               <h2>{date}</h2>
               <h3>{venue}</h3>
               <h4>{address}</h4>
