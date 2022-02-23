@@ -33,11 +33,12 @@ function SongInfo() {
   return (
     <div>
       <div className="container">
+        <h1 className='gradient-text'>Phish Song Phinder</h1>
+        <h3>Enter a song name, and check out when and where it was played most recently.</h3>
         <form onSubmit={finalSearch}>
           <input className='search' placeholder='Look up a song, any song!' onChange={mySongSearch} value={mySearch} ></input>
           {/* <button>I'm feeling lucky!</button> */}
         </form>
-        <h3>Enter a song name, and you can see when and where it was played the last 10 times.</h3>
       </div>
       <div className='list'>
         {mySongs.map((item => {
