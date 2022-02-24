@@ -15,6 +15,27 @@ body {
   margin: 0;
 }
 
+#loader {
+  margin: 2em;
+  height: 150px;
+  /* animation: 3s ease-in 1s infinite reverse both running slidein; */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #loader {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .top {
   background: linear-gradient(45deg, #2C6E91 0%, #F15A50 100%);
   display: flex;
@@ -24,7 +45,7 @@ body {
 }
 
 .link {
-  background-color: rgba(157, 201, 225, 0.75);
+  background-color: rgba(246, 247, 245, 0.75); /* rgba(157, 201, 225, 0.75) */
   padding: 0.75em;
   text-align: center;
   margin: 0.5em;
