@@ -157,6 +157,10 @@ p {
   margin: 0.5em 0;
 }
 
+li, ol {
+  text-align: justify;
+}
+
 @media all and (max-width: 500px) {
   html {
     font-size: 10px;
