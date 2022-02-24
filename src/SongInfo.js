@@ -58,6 +58,7 @@ function SongInfo() {
 
   const finalSearch = (e) => {
     e.preventDefault();
+    setLoading(true);
     setSubmitted(mySearch.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,''));
     setMySearch('');
   }
