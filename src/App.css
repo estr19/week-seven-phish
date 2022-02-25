@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Kanit&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Kanit&family=Libre+Baskerville:ital,wght@0,400&display=swap');
 
 body {
   /* background-image: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) ), url('https://cdn.wallpapersafari.com/45/50/Ej3Brs.jpg');
@@ -173,9 +173,16 @@ p {
   margin: 0.5em 0;
 }
 
-li, ol {
+li {
   text-align: justify;
   font-family: 'Kanit', sans-serif;
+}
+
+ol {
+  border: 1px solid #1d424b;
+  text-align: center;
+  font-family: 'Kanit', sans-serif;
+  padding: 1.5em 3em;
 }
 
 @media all and (max-width: 500px) {

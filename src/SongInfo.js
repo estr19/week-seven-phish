@@ -8,7 +8,8 @@ function SongInfo() {
   const [mySongs, setMySongs] = useState([]);
   const [mySearch, setMySearch] = useState('');
   const [isLoading, setLoading] = useState(true);
-  const [submitted, setSubmitted] = useState('first-tube');
+  const [submitted, setSubmitted] = useState('');
+  const [name, setName] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -16,7 +17,6 @@ function SongInfo() {
       const data = await response.json();
       const newArray = (data.data.slice(-15)).reverse();
       const showDates = newArray.map(value => value.showdate);
-      // console.log(newArray);
       let newObjects = [];
       for (let i = 0; i < newArray.length; i++) {
         let mySong = newArray[i];
@@ -26,14 +26,12 @@ function SongInfo() {
         const responseSetlist = await fetch(`https://api.phish.net/v5/setlists/showdate/${showDate}.json?apikey=${myKey}`);
         const dataSetlist = await responseSetlist.json();
         setlist = (dataSetlist.data).map(value => value.song);
-        // console.log(setlist);
         mySong = {...mySong, setlist, index};
-        // console.log(mySong);
         newObjects.push(mySong);
         }
       setMySongs(newObjects);
+      setName(newObjects[0]);
       setLoading(false);
-      // console.log(newObjects);
     }
     fetchData();
   }, [submitted]); /*  */
@@ -71,17 +69,17 @@ function SongInfo() {
         <form onSubmit={finalSearch}>
           <input className='search' placeholder='Look up a song, any song!' onChange={mySongSearch} value={mySearch} ></input>
         </form>
+        <h2>{name ? name.song : 'Song name will be here'}</h2>
       </div>
       {isLoading ? <img src={loader} alt='loading' id='loader' /> : 
       <div className='list'>
         {mySongs.map((item => {
-          const {id, song, showdate, country, tourname, artist_name, city, state, meta, setlist, showMore, index} = item;
+          const {id, showdate, country, tourname, artist_name, city, state, meta, setlist, showMore, index} = item;
           return (
             <div key={id} className='item' style={{backgroundColor: 'rgba(245, 144, 137, 0.75)'}}>
-              <h2>{index} - {song}</h2>
+              <h2>|{index}| {showdate}</h2>
               <p>{meta ? meta : artist_name}</p>
               <p>{city}, {state} {country}</p>
-              <p>{showdate}</p>
               <p>{tourname}</p>
               <br></br>
               <p>Setlist <span onClick={() => clickSetlist(showdate)} style={{cursor: 'pointer'}}><u>{showMore ? 'collapse' : 'expand'}</u></span></p>
