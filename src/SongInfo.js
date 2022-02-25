@@ -4,8 +4,7 @@ import loader from './loader.png';
 import './App.css';
 
 function SongInfo() {
-
-  const myKey = '9F88FFD6577D0257D407'; /* 9517eac82dd965a3ebe3904055e2b13a */
+  const myKey = '9F88FFD6577D0257D407';
   const [mySongs, setMySongs] = useState([]);
   const [mySearch, setMySearch] = useState('');
   const [isLoading, setLoading] = useState(true);
@@ -67,7 +66,7 @@ function SongInfo() {
     <div>
       <div className="container">
         <h1 className='gradient-text'>Phish Song Phinder</h1>
-        <h3 style={{margin: '0.5em 0'}}>Enter a song name, and check out when and where it was played most recently (max. 15).</h3>
+        <h3 style={{margin: '0.5em 0'}}>Enter a song name, and check out when and where it was played most recently (max. 15)</h3>
         <p>Try looking up "Divided Sky", "Ghosts of the Forest", "Bouncing Around the Room", "Also Sprach Zarathustra", "Character Zero", and many more!</p>
         <form onSubmit={finalSearch}>
           <input className='search' placeholder='Look up a song, any song!' onChange={mySongSearch} value={mySearch} ></input>
@@ -85,7 +84,7 @@ function SongInfo() {
               <p>{showdate}</p>
               <p>{tourname}</p>
               <br></br>
-              <p><span onClick={() => clickSetlist(showdate)} style={{cursor: 'pointer'}}><u>{showMore ? 'Collapse' : 'Expand'}</u></span> setlist</p>
+              <p>Setlist <span onClick={() => clickSetlist(showdate)} style={{cursor: 'pointer'}}><u>{showMore ? 'collapse' : 'expand'}</u></span></p>
               <ol style={{display: `${showMore ? 'block' : 'none'}`}}>
                 {setlist.map((element => {
                   return (

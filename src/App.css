@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Kanit&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap');
 
 body {
   /* background-image: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) ), url('https://cdn.wallpapersafari.com/45/50/Ej3Brs.jpg');
@@ -16,14 +15,14 @@ body {
 }
 
 #loader {
-  margin: 2em;
-  height: 150px;
+  margin: 3em;
+  width: 150px;
   /* animation: 3s ease-in 1s infinite reverse both running slidein; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
   #loader {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 3s linear;
   }
 }
 
@@ -81,13 +80,11 @@ h2,
 h3,
 h4 {
   background-color: rgba(255, 255, 255, 0.75);
-  /* color: #000000; */
   padding: 0.5em;
 }
 
 h4 {
-  font-family: 'Fredoka One', cursive;
-  font-weight: lighter;
+  font-family: 'Kanit', sans-serif;
 }
 
 .container {
@@ -132,7 +129,6 @@ h4 {
 button {
   background-color: #2C6E91;
   color: #F15A50;
-  /* color: #f6f7f5; */
   border: none;
   cursor: pointer;
   font-family: 'Fredoka One', cursive;
@@ -157,7 +153,6 @@ button:hover {
 .btnMap {
   background-color: #F15A50;
   color: #2C6E91;
-  /* color: #F6F7F5; */
 }
 
 .btnz {
@@ -180,6 +175,7 @@ p {
 
 li, ol {
   text-align: justify;
+  font-family: 'Kanit', sans-serif;
 }
 
 @media all and (max-width: 500px) {
