@@ -72,7 +72,7 @@ function SongInfo() {
       </div>
       {isLoading ? <img src={loader} alt='loading' id='loader' /> : 
       <div className="container">
-        <h2>{name ? name.song : 'Song name will be here'}</h2>
+        <h2>{name.song}</h2>
         <div className='list'>
           {mySongs.map((item => {
             const {id, showdate, country, tourname, artist_name, city, state, meta, setlist, showMore, index} = item;
