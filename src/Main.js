@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 import {useEffect} from 'react';
-import axios from 'axios';
 import { phish } from './phish';
 import './App.css';
 
 function Main() {
   const [shows, setShows] = useState(phish);
   const [timer, setTimer] = useState([]);
-  const [quote, setQuote] = useState();
-  const [show, setShow] = useState(false);
 
   const runFunctionWithTimes = () => {
     let newObjects = [];
@@ -30,7 +27,14 @@ function Main() {
       if (displayMinutes < 10) displayMinutes = "0" + displayMinutes;
       if (displaySeconds < 10) displaySeconds = "0" + displaySeconds;
     
-      if (difference > 0) {
+      if (difference <= 0) {
+        minLeft = {
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        }
+      } else if (difference > 0) {
         minLeft = {
           days: displayDays,
           hours: displayHours,
@@ -43,18 +47,10 @@ function Main() {
         } else {
           newObjects.push(show);
         }
+        setTimer(newObjects[0].minLeft);
       }
-      setTimer(newObjects[0].minLeft);
     }
     return setShows(newObjects);
-  }
-
-  const showQuote = () => {
-    axios.get('https://www.boredapi.com/api/activity/')
-    .then(res => {
-      setQuote(res.data.activity);
-    })
-    setShow(true);
   }
 
   useEffect(() => {
@@ -86,17 +82,12 @@ function Main() {
         <h2 style={{margin: '.25em'}}>The next show is in:</h2>
         <h2 className='timer'>{timer.days} : {timer.hours} : {timer.minutes} : {timer.seconds}</h2>
       </div>
-      <div className='container'>
-        <h3 className='quote'>Tired of waiting for the next Phish show and you just don't know what to do with yourself? We can help! Click below to fight your boredom and get yourself busy! Remember, "Time flies when you're having fun!"</h3>
-          <h3 className='quote' style={{cursor: 'pointer'}} onClick={() => showQuote()}>{show ? quote : 'click here!'}&nbsp;</h3>
-        </div>
       <div className='list'>
         {shows.map((element => {
           const {id, date, venue, photo, link, address, tickets, showMap, minLeft} = element;
           return (
             <div className='item' key={id} style={{backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(' + photo + ')'}}>
-              {/* <h2>{timerComponents.length ? timerComponents : <span>It's show time!</span>}</h2> */}
-              <h3 style={{fontSize: '1em'}}>This show is in: <span style={{backgroundColor: 'rgba(157, 201, 225, 0.75)', color: '#000000', padding: '0.25em'}}>{minLeft.days} : {minLeft.hours} : {minLeft.minutes} : {minLeft.seconds}</span></h3>
+              {minLeft ? <h3 style={{fontSize: '1em'}}>This show is in: <span style={{backgroundColor: 'rgba(157, 201, 225, 0.75)', color: '#000000', padding: '0.25em'}}>{minLeft.days} : {minLeft.hours} : {minLeft.minutes} : {minLeft.seconds}</span></h3> : <h3>It's showtime!</h3>}
               <h2>{date}</h2>
               <h3>{venue}</h3>
               <h4>{address}</h4>

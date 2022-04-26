@@ -69,30 +69,32 @@ function SongInfo() {
         <form onSubmit={finalSearch}>
           <input className='search' placeholder='Look up a song, any song!' onChange={mySongSearch} value={mySearch} ></input>
         </form>
-        <h2>{name ? name.song : 'Song name will be here'}</h2>
       </div>
       {isLoading ? <img src={loader} alt='loading' id='loader' /> : 
-      <div className='list'>
-        {mySongs.map((item => {
-          const {id, showdate, country, tourname, artist_name, city, state, meta, setlist, showMore, index} = item;
-          return (
-            <div key={id} className='item' style={{backgroundColor: 'rgba(245, 144, 137, 0.75)'}}>
-              <h2>|{index}| {showdate}</h2>
-              <p>{meta ? meta : artist_name}</p>
-              <p>{city}, {state} {country}</p>
-              <p>{tourname}</p>
-              <br></br>
-              <p>Setlist <span onClick={() => clickSetlist(showdate)} style={{cursor: 'pointer'}}><u>{showMore ? 'collapse' : 'expand'}</u></span></p>
-              <ol style={{display: `${showMore ? 'block' : 'none'}`}}>
-                {setlist.map((element => {
-                  return (
-                    <li key={element.id}>{element}</li>
-                  )
-                }))}
-              </ol>
-            </div>
-          )
-        }))}
+      <div className="container">
+        <h2>{name ? name.song : 'Song name will be here'}</h2>
+        <div className='list'>
+          {mySongs.map((item => {
+            const {id, showdate, country, tourname, artist_name, city, state, meta, setlist, showMore, index} = item;
+            return (
+              <div key={id} className='item' style={{backgroundColor: 'rgba(245, 144, 137, 0.75)'}}>
+                <h2>|{index}| {showdate}</h2>
+                <p>{meta ? meta : artist_name}</p>
+                <p>{city}, {state} {country}</p>
+                <p>{tourname}</p>
+                <br></br>
+                <p>Setlist <span onClick={() => clickSetlist(showdate)} style={{cursor: 'pointer'}}><u>{showMore ? 'collapse' : 'expand'}</u></span></p>
+                <ol style={{display: `${showMore ? 'block' : 'none'}`}}>
+                  {setlist.map((element => {
+                    return (
+                      <li key={element.id}>{element}</li>
+                    )
+                  }))}
+                </ol>
+              </div>
+            )
+          }))}
+        </div>
       </div>
       }
     </div>

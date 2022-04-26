@@ -8,12 +8,12 @@ export const phish = [
     time: 1650497400000,
     address: '4 Pennsylvania Plaza, New York, NY 10001',
     tickets: 'https://phish.com/tours/dates/wed-2021-12-29-madison-square-garden/',
-    minLeft: {
-      days: 4,
-      hours: 4,
-      minutes: 5,
-      seconds: 5,
-    },
+    // minLeft: {
+    //   days: 4,
+    //   hours: 4,
+    //   minutes: 5,
+    //   seconds: 5,
+    // },
   },
   {
     id: 2,
@@ -24,12 +24,12 @@ export const phish = [
     time: 1654299000000,
     address: '12880 E 146th St, Noblesville, IN',
     tickets: 'https://phish.com/tours/dates/fri-2022-6-03-ruoff-music-center/',
-    minLeft: {
-      days: 4,
-      hours: 4,
-      minutes: 5,
-      seconds: 5,
-    },
+    // minLeft: {
+    //   days: 4,
+    //   hours: 4,
+    //   minutes: 5,
+    //   seconds: 5,
+    // },
   },
   {
     id: 3,
@@ -40,12 +40,12 @@ export const phish = [
     time: 1659222000000,
     address: '10475 Little Patuxent Pkwy, Columbia, MD',
     tickets: 'https://phish.com/tours/dates/sat-2022-7-30-merriweather-post-pavilion-2/',
-    minLeft: {
-      days: 4,
-      hours: 4,
-      minutes: 5,
-      seconds: 5,
-    },
+    // minLeft: {
+    //   days: 4,
+    //   hours: 4,
+    //   minutes: 5,
+    //   seconds: 5,
+    // },
   },
   {
     id: 4,
@@ -56,12 +56,12 @@ export const phish = [
     time: 1659481200000,
     address: '1145 W Steels Corners Rd, Cuyahoga Falls, OH',
     tickets: 'https://phish.com/tours/dates/tue-2022-8-02-blossom-music-center/',
-    minLeft: {
-      days: 4,
-      hours: 4,
-      minutes: 5,
-      seconds: 5,
-    },
+    // minLeft: {
+    //   days: 4,
+    //   hours: 4,
+    //   minutes: 5,
+    //   seconds: 5,
+    // },
   },
   {
     id: 5,
@@ -72,12 +72,12 @@ export const phish = [
     time: 1659567600000,
     address: '33 Bob Seger Dr., Clarkston, MI',
     tickets: 'https://phish.com/tours/dates/wed-2022-8-03-pine-knob-music-amphitheatre/',
-    minLeft: {
-      days: 4,
-      hours: 4,
-      minutes: 5,
-      seconds: 5,
-    },
+    // minLeft: {
+    //   days: 4,
+    //   hours: 4,
+    //   minutes: 5,
+    //   seconds: 5,
+    // },
   },
   {
     id: 6,
@@ -88,12 +88,12 @@ export const phish = [
     time: 1659742200000,
     address: '1001 Boardwalk, Atlantic City, NJ 08401',
     tickets: 'https://phish.com/tours/dates/fri-2022-8-05-atlantic-city-beach/',
-    minLeft: {
-      days: 4,
-      hours: 4,
-      minutes: 5,
-      seconds: 5,
-    },
+    // minLeft: {
+    //   days: 4,
+    //   hours: 4,
+    //   minutes: 5,
+    //   seconds: 5,
+    // },
   },
   {
     id: 7,
@@ -104,11 +104,11 @@ export const phish = [
     time: 1660345200000,
     address: '2699 Co Rd D, East Troy, WI',
     tickets: 'https://phish.com/tours/dates/fri-2022-8-12-alpine-valley-music-theatre/',
-    minLeft: {
-      days: 4,
-      hours: 4,
-      minutes: 5,
-      seconds: 5,
-    },
+    // minLeft: {
+    //   days: 4,
+    //   hours: 4,
+    //   minutes: 5,
+    //   seconds: 5,
+    // },
   },
 ]
