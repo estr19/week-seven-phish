@@ -30,7 +30,6 @@ function SongInfo() {
         newObjects.push(mySong);
         }
       setMySongs(newObjects);
-      setName(newObjects[0]);
       setLoading(false);
     }
     fetchData();
@@ -57,6 +56,13 @@ function SongInfo() {
     e.preventDefault();
     setLoading(true);
     setSubmitted(mySearch.toLowerCase().replace(/ /g,'-').replace(/[^\w-]+/g,''));
+    let words = mySearch.split("-");
+    // console.log(words);
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+      // console.log(words);
+    }
+    setName(words.join(" "));
     setMySearch('');
   }
 
@@ -65,14 +71,14 @@ function SongInfo() {
       <div className="container">
         <h1 className='gradient-text'>Phish Song Phinder</h1>
         <h3 style={{margin: '0.5em 0'}}>Enter a song name, and check out when and where it was played most recently (max. 15)</h3>
-        <p>Try looking up "Divided Sky", "Ghosts of the Forest", "Bouncing Around the Room", "Also Sprach Zarathustra", "Character Zero", and many more!</p>
+        <p>Try looking up "Divided Sky", "First Tube",  "Ghosts of the Forest", "Bouncing Around the Room", "Also Sprach Zarathustra", "Character Zero", and many more!</p>
         <form onSubmit={finalSearch}>
           <input className='search' placeholder='Look up a song, any song!' onChange={mySongSearch} value={mySearch} ></input>
         </form>
       </div>
       {isLoading ? <img src={loader} alt='loading' id='loader' /> : 
       <div className="container">
-        <h2>{name.song}</h2>
+        <h2>{name}</h2>
         <div className='list'>
           {mySongs.map((item => {
             const {id, showdate, country, tourname, artist_name, city, state, meta, setlist, showMore, index} = item;

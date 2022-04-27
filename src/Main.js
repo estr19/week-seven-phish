@@ -6,6 +6,9 @@ import './App.css';
 function Main() {
   const [shows, setShows] = useState(phish);
   const [timer, setTimer] = useState([]);
+  const [difference, setDifference] = useState();
+  // const todayDate = Date.now();
+  // console.log(todayDate)
 
   const runFunctionWithTimes = () => {
     let newObjects = [];
@@ -15,6 +18,7 @@ function Main() {
       let showDate = new Date(showTime);
       const today = new Date();
       const difference = showDate - today;
+      setDifference(difference);
       let minLeft = {};
     
       let displayDays = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -26,15 +30,8 @@ function Main() {
       if (displayHours < 10) displayHours = "0" + displayHours;
       if (displayMinutes < 10) displayMinutes = "0" + displayMinutes;
       if (displaySeconds < 10) displaySeconds = "0" + displaySeconds;
-    
-      if (difference <= 0) {
-        minLeft = {
-          days: 0,
-          hours: 0,
-          minutes: 0,
-          seconds: 0
-        }
-      } else if (difference > 0) {
+
+      if (difference > 0) {
         minLeft = {
           days: displayDays,
           hours: displayHours,
@@ -87,7 +84,7 @@ function Main() {
           const {id, date, venue, photo, link, address, tickets, showMap, minLeft} = element;
           return (
             <div className='item' key={id} style={{backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(' + photo + ')'}}>
-              {minLeft ? <h3 style={{fontSize: '1em'}}>This show is in: <span style={{backgroundColor: 'rgba(157, 201, 225, 0.75)', color: '#000000', padding: '0.25em'}}>{minLeft.days} : {minLeft.hours} : {minLeft.minutes} : {minLeft.seconds}</span></h3> : <h3>It's showtime!</h3>}
+              {difference > 0 ? <h3 style={{fontSize: '1em'}}>This show is in: <span style={{backgroundColor: 'rgba(157, 201, 225, 0.75)', color: '#000000', padding: '0.25em'}}>{minLeft.days} : {minLeft.hours} : {minLeft.minutes} : {minLeft.seconds}</span></h3> : <h3>It's showtime!</h3>}
               <h2>{date}</h2>
               <h3>{venue}</h3>
               <h4>{address}</h4>
